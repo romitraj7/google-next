@@ -9,13 +9,13 @@ export default function HomeSearch() {
   const [input, setInput] = useState('');
   const [randomSearchLoading, setRandomSearchLoading] = useState(false);
   const router = useRouter();
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:any) => {
     e.preventDefault();
     if (!input.trim()) return;
     router.push(`/search/web?searchTerm=${input}`);
   };
 
-  const randomSearch = async (e) => {
+  const randomSearch = async () => {
     setRandomSearchLoading(true);
     const response = await fetch('https://random-word-api.herokuapp.com/word')
       .then((res) => res.json())
